@@ -2,11 +2,6 @@ const { test } = require('../../utils/fixtures');
 const { expect } = require('@playwright/test');
 const { getProduct, loadFixture } = require('../../utils/helpers');
 
-/**
- * Testes de Checkout
- * Valida processo de checkout e finalização de pedido
- */
-
 test.describe('Checkout', () => {
   
   test.beforeEach(async ({ page, loginPage, productsPage, cartPage }) => {

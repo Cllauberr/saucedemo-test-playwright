@@ -1,7 +1,3 @@
-/**
- * BasePage - Classe base para todos os Page Objects
- * Contém métodos comuns e reutilizáveis
- */
 class BasePage {
   constructor(page) {
     this.page = page;

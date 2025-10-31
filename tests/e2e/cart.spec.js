@@ -2,11 +2,6 @@ const { test } = require('../../utils/fixtures');
 const { expect } = require('@playwright/test');
 const { getProduct, loadFixture } = require('../../utils/helpers');
 
-/**
- * Testes de Carrinho
- * Valida funcionalidades do carrinho de compras
- */
-
 test.describe('Carrinho', () => {
   
   test.beforeEach(async ({ page, loginPage, productsPage }) => {

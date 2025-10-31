@@ -1,8 +1,3 @@
-/**
- * Testes de regressão visual para identificar bugs visuais com visual_user
- * Este usuário tem problemas visuais conhecidos na aplicação
- */
-
 const { test } = require('../../utils/fixtures');
 const { expect } = require('@playwright/test');
 const { USERS } = require('../../config/constants');

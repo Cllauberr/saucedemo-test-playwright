@@ -3,23 +3,6 @@ const { expect } = require('@playwright/test');
 const { USERS } = require('../../config/constants');
 const { getProduct, getRandomCheckoutData, loadFixture } = require('../../utils/helpers');
 
-/**
- * Teste E2E completo - Fluxo de Compra no SauceDemo
- * 
- * Cenário: Usuário realiza compra completa de produto
- * Dado que o usuário está na página de login
- * Quando ele faz login com credenciais válidas
- * E navega pelos produtos
- * E seleciona um produto específico
- * E valida informações do produto
- * E adiciona o produto ao carrinho
- * E acessa o carrinho
- * E procede para o checkout
- * E preenche os dados de entrega
- * E finaliza o pedido
- * Então ele deve ver a mensagem de confirmação do pedido
- */
-
 test.describe('Fluxo de Compra E2E', () => {
   
   test.beforeEach(async ({ page }) => {

@@ -1,8 +1,7 @@
-/**
- * CheckoutPageElements - Seletores das páginas de checkout
- */
+// CheckoutPageElements - Seletores das páginas de checkout
+
 module.exports = {
-  // Checkout Step One (Informações)
+  //Informações
   pageTitle: '.title',
   firstNameInput: '[data-test="firstName"]',
   lastNameInput: '[data-test="lastName"]',
@@ -11,7 +10,7 @@ module.exports = {
   continueButton: '[data-test="continue"]',
   errorMessage: '[data-test="error"]',
   
-  // Checkout Step Two (Overview)
+  //Overview
   cartItem: '.cart_item',
   cartItemName: '.inventory_item_name',
   cartItemDesc: '.inventory_item_desc',
@@ -21,7 +20,7 @@ module.exports = {
   summaryTotal: '.summary_total_label',
   finishButton: '[data-test="finish"]',
   
-  // Checkout Complete
+  // Completo
   completeHeader: '.complete-header',
   completeText: '.complete-text',
   backHomeButton: '[data-test="back-to-products"]'

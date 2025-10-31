@@ -1,6 +1,5 @@
-/**
- * ProductsPageElements - Seletores da página de produtos
- */
+// Seletores da página de produtos
+
 module.exports = {
   pageTitle: '.title',
   inventoryContainer: '.inventory_container',

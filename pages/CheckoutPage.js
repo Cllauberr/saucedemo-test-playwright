@@ -1,79 +1,60 @@
 const BasePage = require('./BasePage');
 const elements = require('../page-elements/CheckoutPageElements');
 
-/**
- * CheckoutPage - Page Object para as páginas de checkout
- */
+// CheckoutPage - Page Object para as páginas de checkout
+
 class CheckoutPage extends BasePage {
   constructor(page) {
     super(page);
     this.elements = elements;
   }
 
-  /**
-   * Verificar se está na página de checkout step one
-   * @returns {Promise<boolean>}
-   */
+//Verificar se está na página de checkout step one
+  
   async isOnCheckoutStepOne() {
     const title = await this.getText(this.elements.pageTitle);
     return title === 'Checkout: Your Information';
   }
 
-  /**
-   * Preencher informações do checkout
-   * @param {string} firstName - Primeiro nome
-   * @param {string} lastName - Sobrenome
-   * @param {string} postalCode - CEP/Código Postal
-   */
+//Preencher informações do checkout
   async fillCheckoutInformation(firstName, lastName, postalCode) {
     await this.fill(this.elements.firstNameInput, firstName);
     await this.fill(this.elements.lastNameInput, lastName);
     await this.fill(this.elements.postalCodeInput, postalCode);
   }
 
-  /**
-   * Continuar para o próximo passo
-   */
+//Continuar para o próximo passo
+  
   async continue() {
     await this.click(this.elements.continueButton);
   }
 
-  /**
-   * Cancelar checkout
-   */
+//Cancelar checkout
   async cancel() {
     await this.click(this.elements.cancelButton);
   }
 
-  /**
-   * Verificar se mensagem de erro está visível
-   * @returns {Promise<boolean>}
-   */
+// Verificar se mensagem de erro está visível
+  
   async isErrorMessageVisible() {
     return await this.isVisible(this.elements.errorMessage);
   }
 
-  /**
-   * Obter texto da mensagem de erro
-   * @returns {Promise<string>}
-   */
+// Obter texto da mensagem de erro
+
   async getErrorMessage() {
     return await this.getText(this.elements.errorMessage);
   }
 
-  /**
-   * Verificar se está na página de checkout overview (step two)
-   * @returns {Promise<boolean>}
-   */
+//Verificar se está na página de checkout overview (step two)
+
+  
   async isOnCheckoutOverview() {
     const title = await this.getText(this.elements.pageTitle);
     return title === 'Checkout: Overview';
   }
 
-  /**
-   * Obter itens do resumo do pedido
-   * @returns {Promise<Array>}
-   */
+// Obter itens do resumo do pedido
   async getOrderItems() {
     const items = await this.page.$$(this.elements.cartItem);
     const orderItems = [];
@@ -89,37 +70,26 @@ class CheckoutPage extends BasePage {
     return orderItems;
   }
 
-  /**
-   * Obter subtotal do pedido
-   * @returns {Promise<string>}
-   */
+// Obter subtotal do pedido
+  
   async getSubtotal() {
     const text = await this.getText(this.elements.summarySubtotal);
     return text.replace('Item total: ', '');
   }
 
-  /**
-   * Obter valor da taxa
-   * @returns {Promise<string>}
-   */
+//Obter valor da taxa  
   async getTax() {
     const text = await this.getText(this.elements.summaryTax);
     return text.replace('Tax: ', '');
   }
 
-  /**
-   * Obter total do pedido
-   * @returns {Promise<string>}
-   */
+// Obter total do pedido  
   async getTotal() {
     const text = await this.getText(this.elements.summaryTotal);
     return text.replace('Total: ', '');
   }
 
-  /**
-   * Obter resumo completo do pedido
-   * @returns {Promise<Object>}
-   */
+// Obter resumo completo do pedido
   async getOrderSummary() {
     const items = await this.getOrderItems();
     const subtotal = await this.getSubtotal();
@@ -129,40 +99,34 @@ class CheckoutPage extends BasePage {
     return { items, subtotal, tax, total };
   }
 
-  /**
-   * Finalizar pedido
-   */
+//Finalizar pedido
+  
   async finishOrder() {
     await this.click(this.elements.finishButton);
   }
 
-  /**
-   * Verificar se está na página de confirmação
-   * @returns {Promise<boolean>}
-   */
+//Verificar se está na página de confirmação
+  
   async isOnCheckoutComplete() {
     return await this.isVisible(this.elements.completeHeader);
   }
 
-  /**
-   * Obter mensagem de confirmação
-   * @returns {Promise<string>}
-   */
+// Obter mensagem de confirmação
+
+  
   async getConfirmationMessage() {
     return await this.getText(this.elements.completeHeader);
   }
 
-  /**
-   * Obter texto de agradecimento
-   * @returns {Promise<string>}
-   */
+// Obter texto de agradecimento
+
+  
   async getThankYouMessage() {
     return await this.getText(this.elements.completeText);
   }
 
-  /**
-   * Voltar para a página inicial
-   */
+// Voltar para a página inicial
+  
   async backToHome() {
     await this.click(this.elements.backHomeButton);
   }

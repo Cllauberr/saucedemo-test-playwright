@@ -2,11 +2,6 @@ const { test } = require('../../utils/fixtures');
 const { expect } = require('@playwright/test');
 const { getProduct, getAllProducts, loadFixture } = require('../../utils/helpers');
 
-/**
- * Testes de Produtos
- * Valida navegação e interação com produtos
- */
-
 test.describe('Produtos', () => {
   
   test.beforeEach(async ({ page, loginPage, productsPage }) => {

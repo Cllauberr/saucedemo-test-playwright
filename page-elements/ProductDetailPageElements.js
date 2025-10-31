@@ -1,6 +1,4 @@
-/**
- * ProductDetailPageElements - Seletores da página de detalhes do produto
- */
+// ProductDetailPageElements - Seletores da página de detalhes do produto
 module.exports = {
   backButton: '[data-test="back-to-products"]',
   productName: '.inventory_details_name',

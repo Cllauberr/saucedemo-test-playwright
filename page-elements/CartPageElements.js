@@ -1,6 +1,4 @@
-/**
- * CartPageElements - Seletores da página do carrinho
- */
+//CartPageElements - Seletores da página do carrinho
 module.exports = {
   pageTitle: '.title',
   cartItem: '.cart_item',

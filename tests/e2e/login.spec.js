@@ -3,11 +3,6 @@ const { expect } = require('@playwright/test');
 const { USERS } = require('../../config/constants');
 const { loadFixture } = require('../../utils/helpers');
 
-/**
- * Testes de Login
- * Valida diferentes cenários de autenticação
- */
-
 test.describe('Login', () => {
   
   test.beforeEach(async ({ page }) => {

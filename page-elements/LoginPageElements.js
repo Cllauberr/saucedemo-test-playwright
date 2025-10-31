@@ -1,6 +1,4 @@
-/**
- * LoginPageElements - Seletores da página de login
- */
+// LoginPageElements - Seletores da página de login
 module.exports = {
   usernameInput: '[data-test="username"]',
   passwordInput: '[data-test="password"]',
