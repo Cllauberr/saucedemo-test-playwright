@@ -1,0 +1,36 @@
+# Dependências
+node_modules/
+package-lock.json
+
+# Arquivos de teste
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Screenshots e vídeos
+screenshots/
+videos/
+traces/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
