@@ -1,0 +1,39 @@
+{
+  "checkoutData": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "postalCode": "12345"
+    },
+    {
+      "firstName": "Maria",
+      "lastName": "Silva",
+      "postalCode": "54321"
+    },
+    {
+      "firstName": "Test",
+      "lastName": "User",
+      "postalCode": "99999"
+    }
+  ],
+  "invalidCheckoutData": [
+    {
+      "firstName": "",
+      "lastName": "Doe",
+      "postalCode": "12345",
+      "expectedError": "Error: First Name is required"
+    },
+    {
+      "firstName": "John",
+      "lastName": "",
+      "postalCode": "12345",
+      "expectedError": "Error: Last Name is required"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "postalCode": "",
+      "expectedError": "Error: Postal Code is required"
+    }
+  ]
+}
