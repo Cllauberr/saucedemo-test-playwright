@@ -89,16 +89,6 @@ class CheckoutPage extends BasePage {
     return text.replace('Total: ', '');
   }
 
-// Obter resumo completo do pedido
-  async getOrderSummary() {
-    const items = await this.getOrderItems();
-    const subtotal = await this.getSubtotal();
-    const tax = await this.getTax();
-    const total = await this.getTotal();
-    
-    return { items, subtotal, tax, total };
-  }
-
 //Finalizar pedido
   
   async finishOrder() {
