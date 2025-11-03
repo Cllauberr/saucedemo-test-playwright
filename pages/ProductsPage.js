@@ -18,16 +18,6 @@ class ProductsPage extends BasePage {
     return await this.getText(this.elements.pageTitle);
   }
 
-  //Obter descrição da página
-  async getPageDescription() {
-    return await this.getText(this.elements.pageDescription);
-  }
-
-  //Obter imagem da página
-  async getPageImage() {
-    return await this.getAttribute(this.elements.pageImage, 'src');
-  }
-
   //Obter lista de todos os produtos
   async getAllProducts() {
     const products = await this.page.$$(this.elements.inventoryItem);
@@ -90,13 +80,6 @@ class ProductsPage extends BasePage {
   // Ordenar produtos
   async sortProducts(option) {
     await this.page.selectOption(this.elements.productSortContainer, option);
-  }
-
-  // Fazer logout
-  async logout() {
-    await this.click(this.elements.burgerMenu);
-    await this.waitForElement(this.elements.logoutLink);
-    await this.click(this.elements.logoutLink);
   }
 }
 
