@@ -1,16 +1,7 @@
-/**
- * Funções auxiliares para testes de regressão visual
- */
-
 const { USERS } = require('../config/constants');
 
-/**
- * Capturar imagem de produto e seu src
- * @param {Page} productsPage - Página de produtos
- * @param {string} productName - Nome do produto
- * @param {string} screenshotPath - Caminho para salvar screenshot
- * @returns {Promise<Object>} Objeto com locator e src da imagem
- */
+//Capturar imagem de produto e seu src
+
 async function captureProductImage(productsPage, productName, screenshotPath) {
   const productImage = await productsPage.getProductImage(productName);
   await productImage.screenshot({ path: screenshotPath });
@@ -19,14 +10,7 @@ async function captureProductImage(productsPage, productName, screenshotPath) {
   return { locator: productImage, src: imageSrc };
 }
 
-/**
- * Comparar imagens entre visual_user e standard_user
- * @param {Page} page - Instância da página
- * @param {LoginPage} loginPage - Página de login
- * @param {ProductsPage} productsPage - Página de produtos
- * @param {string} productName - Nome do produto
- * @returns {Promise<Object>} Objeto com os src de ambos os usuários
- */
+//Comparar imagens entre visual_user e standard_user
 async function compareProductImages(page, loginPage, productsPage, productName) {
   // Capturar imagem com visual_user
   const visualUserImage = await captureProductImage(
@@ -53,13 +37,7 @@ async function compareProductImages(page, loginPage, productsPage, productName) 
   };
 }
 
-/**
- * Capturar e analisar badge do carrinho
- * @param {Page} page - Instância da página
- * @param {ProductsPage} productsPage - Página de produtos
- * @param {string} productName - Nome do produto para adicionar
- * @returns {Promise<Object>} Dados do badge (posição, texto)
- */
+//Capturar e analisar badge do carrinho
 async function captureCartBadge(page, productsPage, productName) {
   await productsPage.addProductToCartByName(productName);
   
@@ -80,11 +58,7 @@ async function captureCartBadge(page, productsPage, productName) {
   };
 }
 
-/**
- * Inspecionar todas as imagens dos produtos
- * @param {Page} page - Instância da página
- * @returns {Promise<Array>} Lista de produtos com nome e src da imagem
- */
+//Inspecionar todas as imagens dos produtos
 async function inspectAllProductImages(page) {
   const productElements = await page.locator('.inventory_item').all();
   const products = [];
@@ -110,12 +84,7 @@ async function inspectAllProductImages(page) {
   return products;
 }
 
-/**
- * Capturar screenshots full-page de ambos os usuários
- * @param {Page} page - Instância da página
- * @param {LoginPage} loginPage - Página de login
- * @param {ProductsPage} productsPage - Página de produtos
- */
+//Capturar screenshots full-page de ambos os usuários
 async function captureFullPageComparison(page, loginPage, productsPage) {
   // Screenshot com visual_user
   await page.screenshot({ 
@@ -135,11 +104,7 @@ async function captureFullPageComparison(page, loginPage, productsPage) {
   });
 }
 
-/**
- * Coletar posições dos botões Add to Cart
- * @param {Page} page - Instância da página
- * @returns {Promise<Array>} Lista de posições dos botões
- */
+//Coletar posições dos botões Add to Cart
 async function collectButtonPositions(page) {
   const addButtons = await page.locator('[data-test^="add-to-cart"]').all();
   const positions = [];
@@ -159,13 +124,7 @@ async function collectButtonPositions(page) {
   return positions;
 }
 
-/**
- * Comparar posições dos botões entre visual_user e standard_user
- * @param {Page} page - Instância da página
- * @param {LoginPage} loginPage - Página de login
- * @param {ProductsPage} productsPage - Página de produtos
- * @returns {Promise<Object>} Posições de ambos os usuários e diferenças
- */
+//Comparar posições dos botões entre visual_user e standard_user
 async function compareButtonPositions(page, loginPage, productsPage) {
   const visualUserPositions = await collectButtonPositions(page);
   
@@ -202,11 +161,7 @@ async function compareButtonPositions(page, loginPage, productsPage) {
   };
 }
 
-/**
- * Analisar alinhamento dos preços
- * @param {Page} page - Instância da página
- * @returns {Promise<Object>} Dados dos preços e análise de alinhamento
- */
+//Analisar alinhamento dos preços
 async function analyzePriceAlignment(page) {
   const priceElements = await page.locator('.inventory_item_price').all();
   const prices = [];
@@ -233,12 +188,10 @@ async function analyzePriceAlignment(page) {
 }
 
 module.exports = {
-  captureProductImage,
   compareProductImages,
   captureCartBadge,
   inspectAllProductImages,
   captureFullPageComparison,
-  collectButtonPositions,
   compareButtonPositions,
   analyzePriceAlignment
 };

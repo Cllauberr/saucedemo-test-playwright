@@ -11,7 +11,5 @@ module.exports = {
   removeButton: '[data-test^="remove"]',
   shoppingCartBadge: '.shopping_cart_badge',
   shoppingCartLink: '.shopping_cart_link',
-  productSortContainer: '.product_sort_container',
-  burgerMenu: '#react-burger-menu-btn',
-  logoutLink: '#logout_sidebar_link'
+  productSortContainer: '.product_sort_container'
 };
