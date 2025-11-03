@@ -14,19 +14,16 @@ class ProductDetailPage extends BasePage {
   }
 
   // Obter descrição do produto
-
   async getProductDescription() {
     return await this.getText(this.elements.productDescription);
   }
 
   //Obter preço do produto
-
   async getProductPrice() {
     return await this.getText(this.elements.productPrice);
   }
 
   //Obter todos os detalhes do produto
-
   async getProductDetails() {
     const name = await this.getProductName();
     const description = await this.getProductDescription();
@@ -36,21 +33,13 @@ class ProductDetailPage extends BasePage {
   }
 
   //Adicionar produto ao carrinho
-
   async addToCart() {
     await this.page.click(this.elements.addToCartButton);
   }
 
   //Verificar se produto foi adicionado ao carrinho
-
   async isProductInCart() {
     return await this.isVisible(this.elements.removeButton);
-  }
-
-  //Voltar para a página de produtos
-
-  async goBackToProducts() {
-    await this.click(this.elements.backButton);
   }
 
   //Ir para o carrinho
@@ -59,7 +48,6 @@ class ProductDetailPage extends BasePage {
   }
 
   //Obter quantidade de itens no carrinho
-
   async getCartBadgeCount() {
     const isVisible = await this.isVisible(this.elements.shoppingCartBadge);
     if (!isVisible) return '0';
