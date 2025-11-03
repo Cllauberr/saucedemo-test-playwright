@@ -1,9 +1,6 @@
 const { defineConfig, devices } = require('@playwright/test');
 
-/**
- * Configuração do Playwright para testes E2E
- * @see https://playwright.dev/docs/test-configuration
- */
+//Configuração do Playwright para testes E2E
 module.exports = defineConfig({
   // Diretório onde os testes estão localizados
   testDir: './tests',
