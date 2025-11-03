@@ -1,10 +1,6 @@
 {
   "pages": {
-    "products": "Products",
-    "cart": "Your Cart",
-    "checkoutStepOne": "Checkout: Your Information",
-    "checkoutStepTwo": "Checkout: Overview",
-    "checkoutComplete": "Checkout: Complete!"
+    "products": "Products"
   },
   "errors": {
     "login": {
